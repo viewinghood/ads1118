@@ -57,7 +57,7 @@ from ads1118 import ADS1118
 
 # Initialize the ADC with default settings
 # corresponds to D5 = SPI-CS0 on ESP32
-adc = ADS1118()  # inputs= IN0 & IN1 (differentail)
+adc = ADS1118()  # inputs= IN0 & IN1 (differential)
 
 # Read voltage from AIN0_AIN1 
 voltage, raw, scale = adc.readData()
@@ -70,10 +70,10 @@ print(f"Voltage: {voltage:.3f}V, Raw: {raw}, Scale: {scale}")
 adc = ads1118.ADS1118(D22, [MUX_AIN0_AIN1,MUX_AIN2_AIN3])
 
 # Read voltage from first pair AIN0_AIN1
-voltage, raw, scale = adc.readData(mux=ADS1118.MUX_AIN0)
+voltage, raw, scale = adc.readData(mux=0)
 # Read voltage from second pair MUX_AIN2_AIN3
-voltage2, raw2, scale = adc.readData(mux=ADS1118.MUX_AIN0)
-print(f"Voltage: {voltage:.3f}V, Raw: {raw}, Scale: {scale}")
+voltage2, raw2, scale = adc.readData(mux=1)
+print(f"Voltage 2: {voltage2:.3f}V, Raw: {raw}, Scale: {scale}")
 ```
 
 ### Temperature Reading
